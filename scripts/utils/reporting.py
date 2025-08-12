@@ -48,7 +48,7 @@ def extract_safe(in_file, out_file, start, stop):
 def spectrogram(in_file, title, comment, raw=False):
     fd, tmp_file = tempfile.mkstemp(suffix='.png')
     os.close(fd)
-    args = ['sox', '-V1', f'{in_file}', '-n', 'remix', '1', 'rate', '24k', 'spectrogram',
+    args = ['sox', '-V1', f'{in_file}', '-n', 'remix', '1', 'spectrogram',
             '-t', '', '-c', '', '-o', tmp_file]
     args += ['-r'] if raw else []
     result = subprocess.run(args, check=True, capture_output=True)
